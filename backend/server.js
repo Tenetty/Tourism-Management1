@@ -17,7 +17,10 @@ connectDB();
 app.use(express.json({ limit: "50mb", extended: true }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({
+  origin: ["http://localhost:3000", "https://tourism-management2.vercel.app", "https://tourism-management2-git-main-tenetty-s-projects.vercel.app"],
+  credentials: true
+}));
 
 //to accept body data
 
@@ -134,7 +137,7 @@ const server = app.listen(port, () =>
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://tourism-management2.vercel.app"],
   },
 });
 
